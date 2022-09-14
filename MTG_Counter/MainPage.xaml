@@ -3,22 +3,253 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MTG_Counter.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <BoxView Margin="5,5,-5,0"
+                 Color="Green" />
+        <Label Text="-"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="90"
+               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
 
+        <BoxView Margin="-5,5,-5,0"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Color="Green" />
+        <Label Grid.Column="1"
+               Grid.ColumnSpan="2"
+               Text="Life"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="45"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <BoxView Margin="-5,5,5,0"
+                 Color="Green" 
+                 Grid.Column="3"
+                 Grid.ColumnSpan="1"/>
+        <Label Grid.Column="3"
+               Grid.ColumnSpan="1"
+               Text="+"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="90"
+               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <BoxView Margin="5,0,-5,0"
+                 Grid.Row="1"
+                 Color="Red" />
+        <Label Grid.Row="1"
+               Text="-"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"  />
+
+        <BoxView Margin="-5,0,-5,0"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Color="Red"
+                 Grid.ColumnSpan="2" />
+        <Label Grid.Row="1"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+               Text="Commander Tax"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="25"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <BoxView Margin="-5,0,5,0"
+                 Grid.Row="1"
+                 Grid.Column="3"
+                 Color="Red" />
+        <Label Grid.Row="1"
+               Grid.Column="3"
+               Grid.ColumnSpan="1"
+               Text="+"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <BoxView Margin="5,0,-5,0"
+                 Grid.Row="2"
+                 Color="Blue" />
+        <Label Grid.Row="2"
+               Text="-"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"  />
+
+        <BoxView Margin="-5,0,-5,0"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Color="Blue"
+                 Grid.ColumnSpan="2" />
+        <Label Grid.Row="2"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+               Text="Experience"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="25"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <BoxView Margin="-5,0,-5,0"
+                 Grid.Row="2"
+                 Grid.Column="3"
+                 Color="Blue" />
+        <Label Grid.Row="2"
+               Grid.Column="3"
+               Grid.ColumnSpan="1"
+               Text="+"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <BoxView Margin="-5,0,-5,0"
+                 Grid.Row="3"
+                 Color="Purple" />
+        <Label Grid.Row="3"
+               Text="-"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"  />
+
+        <BoxView Margin="-5,0,-5,0"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 Color="Purple"
+                 Grid.ColumnSpan="2" />
+        <Label Grid.Row="3"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+               Text="Poison"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="25"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <BoxView Margin="-5,0,5,0"
+                 Grid.Row="3"
+                 Grid.Column="3"
+                 Color="Purple" />
+        <Label Grid.Row="3"
+               Grid.Column="3"
+               Grid.ColumnSpan="1"
+               Text="+"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <BoxView 
+                 Margin="5,0,0,0"
+                 Grid.Row="4"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 Color="Black" />
+        <Label Grid.Row="4"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Text="H"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        
+        <BoxView Margin="0,0,5,0"
+                 Grid.Row="4"
+                 Grid.Column="2"
+                 Grid.ColumnSpan="2"
+                 Color="Black" />
+        <Label Grid.Row="4"
+               Grid.Column="2"
+               Grid.ColumnSpan="2"
+               Text="+"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <BoxView Margin="5,0,0,0"
+                 Grid.Row="5"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 Color="Black" />
+        <Label Grid.Row="5"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Text="+"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        
+        <BoxView Margin="0,0,5,0"
+                 Grid.Row="5"
+                 Grid.Column="2"
+                 Grid.ColumnSpan="2"
+                 Color="Black" />
+        <Label Grid.Row="5"
+               Grid.Column="2"
+               Grid.ColumnSpan="2"
+               Text="+"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="50"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+    </Grid>
 </ContentPage>
