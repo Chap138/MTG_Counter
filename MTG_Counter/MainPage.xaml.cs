@@ -14,5 +14,10 @@ namespace MTG_Counter
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
