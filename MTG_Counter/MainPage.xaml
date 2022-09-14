@@ -4,22 +4,29 @@
              x:Class="MTG_Counter.MainPage"
              BackgroundColor="Black">
 
-<Grid>
-    <Grid.RowDefinitions>
-        <RowDefinition Height="4*"/>
-        <RowDefinition />
-        <RowDefinition />
-        <RowDefinition />
-        <RowDefinition />
-        <RowDefinition />
-        <RowDefinition />
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition />
-        <ColumnDefinition />
-        <ColumnDefinition />
-        <ColumnDefinition />
-    </Grid.ColumnDefinitions>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+                x:Name="SettingsBtn"
+                Text="Settings"
+                Clicked="SettingsBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
         <Button  x:Name="LifeMinusBtn"
                  Margin="10,15,-10,10"
@@ -27,15 +34,15 @@
                  BackgroundColor="Green"
                  FontAttributes="Bold"
                  TextColor="White"
-                 ImageSource="SettingsIcon.png"/>
+                 ImageSource="MinusIcon.png"/>
 
-    <BoxView x:Name="LifeBox"
+        <BoxView x:Name="LifeBox"
                  Margin="-15,15,-15,10"
                  Grid.Column="1"
                  CornerRadius="10"
                  Grid.ColumnSpan="2"
                  BackgroundColor="Green" />
-    <Label x:Name="LifeLabel"
+        <Label x:Name="LifeLabel"
                Grid.Column="1"
                Grid.ColumnSpan="2"
                Text="Life"
@@ -53,7 +60,7 @@
                  FontAttributes="Bold"
                  TextColor="White"
                  FontSize="90"
-                 ImageSource="SettingsIcon.png"/>
+                 ImageSource="PlusIcon.png"/>
 
         <Button x:Name="CommTaxMinusBtn"
                  Margin="10,0,-15,0"
@@ -61,7 +68,7 @@
                  CornerRadius="10"
                  BackgroundColor="Red" 
                  FontAttributes="Bold"
-                 ImageSource="SettingsIcon.png"/>
+                 ImageSource="MinusIcon.png"/>
 
         <BoxView x:Name="CommTaxBox"
                  Margin="-15,0,-15,0"
@@ -87,22 +94,22 @@
                  Grid.Column="3"
                  CornerRadius="10"
                  BackgroundColor="Red" 
-                 ImageSource="SettingsIcon.png"/>
+                 ImageSource="PlusIcon.png"/>
 
         <Button x:Name="ExpMinusBtn"
                  Margin="10,5,-15,0"
                  Grid.Row="2"
                  CornerRadius="10"
                  BackgroundColor="Blue" 
-                 ImageSource="SettingsIcon.png"/>
-   
-    <BoxView     x:Name="ExpBox"
+                 ImageSource="MinusIcon.png"/>
+
+        <BoxView     x:Name="ExpBox"
                  Margin="-10,5,-10,0"
                  Grid.Row="2"
                  Grid.Column="1"
                  BackgroundColor="Blue"
                  Grid.ColumnSpan="2" />
-    <Label Grid.Row="2"
+        <Label Grid.Row="2"
                Grid.Column="1"
                Grid.ColumnSpan="2"
                Text="Experience"
@@ -119,22 +126,22 @@
                  CornerRadius="10"
                  BackgroundColor="Blue" 
                FontAttributes="Bold"
-               ImageSource="SettingsIcon.png"/>
-    
+               ImageSource="PlusIcon.png"/>
+
         <Button x:Name="PoisonMinusBtn"
                  Margin="10,5,-15,0"
                  Grid.Row="3"
                  CornerRadius="10"
                  BackgroundColor="Purple" 
-                 ImageSource="SettingsIcon.png"/>
-    
-    <BoxView x:Name="PoisonBox"
+                 ImageSource="MinusIcon.png"/>
+
+        <BoxView x:Name="PoisonBox"
                  Margin="-10,5,-10,0"
                  Grid.Row="3"
                  Grid.Column="1"
                  BackgroundColor="Purple"
                  Grid.ColumnSpan="2" />
-    <Label x:Name="PoisonLabel"
+        <Label x:Name="PoisonLabel"
                Grid.Row="3"
                Grid.Column="1"
                Grid.ColumnSpan="2"
@@ -151,7 +158,7 @@
                  Grid.Column="3"
                  CornerRadius="10"
                  BackgroundColor="Purple"
-                 ImageSource="SettingsIcon.png"/>
+                 ImageSource="PlusIcon.png"/>
 
         <Button x:Name="CommDmgBtn1"
                  Margin="10,5,5,0"
@@ -160,7 +167,7 @@
                  CornerRadius="10"
                  Grid.ColumnSpan="2"
                  BackgroundColor="Gray"
-                 Text="Comm 1"
+                 Text="CmDmg 1"
                  TextTransform="None"
                  FontAttributes="Bold"
                  TextColor="White"
@@ -173,7 +180,7 @@
                  CornerRadius="10"
                  Grid.ColumnSpan="2"
                  BackgroundColor="Gray" 
-                 Text="Comm 2"
+                 Text="CmDmg 2"
                  TextTransform="None"
                  FontAttributes="Bold"
                  TextColor="White"
@@ -186,7 +193,7 @@
                  CornerRadius="10"
                  Grid.ColumnSpan="2"
                  BackgroundColor="Gray"
-                 Text="Comm 3"
+                 Text="CmDmg 3"
                  TextTransform="None"
                  FontAttributes="Bold"
                  TextColor="White"
@@ -199,19 +206,11 @@
                  CornerRadius="10"
                  Grid.ColumnSpan="2"
                  BackgroundColor="Gray"
-                 Text="Comm 4"
+                 Text="CmDmg 4"
                  TextTransform="None"
                  FontAttributes="Bold"
                  TextColor="White"
                  FontSize="30"/>
-
-        <Button x:Name="SettingsBtn"
-                Margin="0,0,5,5"
-                Grid.Row="6"
-                Grid.Column="3"
-                CornerRadius="10"
-                BackgroundColor="Black"
-                ImageSource="SettingsIcon.png"/>
 
     </Grid>
 </ContentPage>

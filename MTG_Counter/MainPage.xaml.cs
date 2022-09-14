@@ -15,9 +15,9 @@ namespace MTG_Counter
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void SettingsBtn_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new SettingsPage());
         }
     }
 }
