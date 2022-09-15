@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:mtg_counter="clr-namespace:MTG_Counter" x:DataType="mtg_counter:Player"
              x:Class="MTG_Counter.MainPage"
              BackgroundColor="Black">
 
@@ -34,7 +34,8 @@
                  BackgroundColor="Green"
                  FontAttributes="Bold"
                  TextColor="White"
-                 ImageSource="MinusIcon.png"/>
+                 ImageSource="MinusIcon.png"
+                 Clicked="LifeMinusBtn_Clicked"/>
 
         <BoxView x:Name="LifeBox"
                  Margin="-15,15,-15,10"
@@ -45,10 +46,10 @@
         <Label x:Name="LifeLabel"
                Grid.Column="1"
                Grid.ColumnSpan="2"
-               Text="Life"
+               Text="{Binding Life}"
                FontAttributes="Bold"
                TextColor="White"
-               FontSize="45"
+               FontSize="100"
                HorizontalOptions="Center"
                VerticalOptions="Center" />
 
@@ -60,7 +61,8 @@
                  FontAttributes="Bold"
                  TextColor="White"
                  FontSize="90"
-                 ImageSource="PlusIcon.png"/>
+                 ImageSource="PlusIcon.png"
+                 Clicked="LifePlusBtn_Clicked"/>
 
         <Button x:Name="CommTaxMinusBtn"
                  Margin="10,0,-15,0"
@@ -68,23 +70,36 @@
                  CornerRadius="10"
                  BackgroundColor="Red" 
                  FontAttributes="Bold"
-                 ImageSource="MinusIcon.png"/>
+                 ImageSource="MinusIcon.png"
+                 Clicked="CommTaxMinusBtn_Clicked"/>
 
         <BoxView x:Name="CommTaxBox"
-                 Margin="-15,0,-15,0"
+                 Margin="-10,0,-15,0"
                  Grid.Row="1"
                  Grid.Column="1"
                  CornerRadius="10"
                  BackgroundColor="Red"
                  Grid.ColumnSpan="2" />
-        <Label x:Name="CommTaxLabel"
+        <Label x:Name="CommTaxLabelText"
+               Margin="10,0,-30,0"
                Grid.Row="1"
                Grid.Column="1"
-               Grid.ColumnSpan="2"
-               Text="Commander Tax"
+               Grid.ColumnSpan="1"
+               Text="Commander Tax:"
                FontAttributes="Bold"
                TextColor="White"
-               FontSize="25"
+               FontSize="20"
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" />
+        <Label x:Name="CommTaxLabelNum"
+               Margin="15,0,0,0"
+               Grid.Row="1"
+               Grid.Column="2"
+               Grid.ColumnSpan="1"
+               Text="{Binding CommTax}"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="35"
                HorizontalOptions="Center"
                VerticalOptions="Center" />
 
@@ -94,30 +109,45 @@
                  Grid.Column="3"
                  CornerRadius="10"
                  BackgroundColor="Red" 
-                 ImageSource="PlusIcon.png"/>
+                 ImageSource="PlusIcon.png"
+                 Clicked="CommTaxPlusBtn_Clicked"/>
 
         <Button x:Name="ExpMinusBtn"
                  Margin="10,5,-15,0"
                  Grid.Row="2"
                  CornerRadius="10"
                  BackgroundColor="Blue" 
-                 ImageSource="MinusIcon.png"/>
+                 ImageSource="MinusIcon.png"
+                 Clicked="ExpMinusBtn_Clicked"/>
 
-        <BoxView     x:Name="ExpBox"
-                 Margin="-10,5,-10,0"
+        <BoxView x:Name="ExpBox"
+                 Margin="0,5,-10,0"
                  Grid.Row="2"
                  Grid.Column="1"
                  BackgroundColor="Blue"
                  Grid.ColumnSpan="2" />
-        <Label Grid.Row="2"
+        <Label x:Name="ExpLabelText"
+               Margin="10,0,-20,0"
+               Grid.Row="2"
                Grid.Column="1"
-               Grid.ColumnSpan="2"
-               Text="Experience"
+               Grid.ColumnSpan="1"
+               Text="Experience: "
                FontAttributes="Bold"
                TextColor="White"
-               FontSize="25"
-               HorizontalOptions="Center"
+               FontSize="20"
+               HorizontalOptions="Start"
                VerticalOptions="Center" />
+        <Label x:Name="ExpNumText"
+               Margin="15,0,0,0"
+               Grid.Row="2"
+               Grid.Column="2"
+               Grid.ColumnSpan="1"
+               Text="{Binding ExpCtr}"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="35"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
 
         <Button x:Name="ExpPlusBtn"
             Margin="-5,5,10,0"
@@ -126,14 +156,16 @@
                  CornerRadius="10"
                  BackgroundColor="Blue" 
                FontAttributes="Bold"
-               ImageSource="PlusIcon.png"/>
+               ImageSource="PlusIcon.png"
+                Clicked="ExpPlusBtn_Clicked"/>
 
         <Button x:Name="PoisonMinusBtn"
                  Margin="10,5,-15,0"
                  Grid.Row="3"
                  CornerRadius="10"
                  BackgroundColor="Purple" 
-                 ImageSource="MinusIcon.png"/>
+                 ImageSource="MinusIcon.png"
+                 Clicked="PoisonMinusBtn_Clicked"/>
 
         <BoxView x:Name="PoisonBox"
                  Margin="-10,5,-10,0"
@@ -142,13 +174,25 @@
                  BackgroundColor="Purple"
                  Grid.ColumnSpan="2" />
         <Label x:Name="PoisonLabel"
+               Margin="-25,0,-20,0"
                Grid.Row="3"
                Grid.Column="1"
-               Grid.ColumnSpan="2"
-               Text="Poison"
+               Grid.ColumnSpan="1"
+               Text="Poison: "
                FontAttributes="Bold"
                TextColor="White"
-               FontSize="25"
+               FontSize="20"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        <Label x:Name="PoisonNum"
+               Margin="15,0,0,0"
+               Grid.Row="3"
+               Grid.Column="2"
+               Grid.ColumnSpan="1"
+               Text="{Binding PoisonCtr}"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="35"
                HorizontalOptions="Center"
                VerticalOptions="Center" />
 
@@ -158,7 +202,8 @@
                  Grid.Column="3"
                  CornerRadius="10"
                  BackgroundColor="Purple"
-                 ImageSource="PlusIcon.png"/>
+                 ImageSource="PlusIcon.png"
+                 Clicked="PoisonPlusBtn_Clicked"/>
 
         <Button x:Name="CommDmgBtn1"
                  Margin="10,5,5,0"
