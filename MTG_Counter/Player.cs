@@ -80,11 +80,11 @@ namespace MTG_Counter
         }
 
         private int commDmg2 = 0;
-        public int CommDmg2 
+        public int CommDmg2
         {
             get { return commDmg2; }
-            
-            set 
+
+            set
             {
                 commDmg2 = value;
                 OnPropertyChanged("CommDmg2");
@@ -163,6 +163,18 @@ namespace MTG_Counter
             }
         }
 
+        private int poisonBtnRow = 0;
+        public int PoisonBtnRow
+        {
+            get { return poisonBtnRow; }
+
+            set
+            {
+                poisonBtnRow = value;
+                OnPropertyChanged("PoisonBtnRow");
+            }
+        }
+
         private bool cmmDmg1Vis = false;
         public bool CmmDmg1Vis
         {
@@ -226,7 +238,7 @@ namespace MTG_Counter
         private int expBtnRow = 0;
         public int ExpBtnRow
         {
-            get { return expBtnRow ; }
+            get { return expBtnRow; }
 
             set
             {
@@ -247,6 +259,28 @@ namespace MTG_Counter
             }
         }
 
+        private bool createExpCtrEnabled = true;
+        public bool CreateExpCtrEnabled
+        {
+            get { return createExpCtrEnabled; }
+
+            set
+            {
+                createExpCtrEnabled = value;
+                OnPropertyChanged("CreateExpCtrEnabled");
+            }
+        }
+        private bool createPoisonCtrEnabled = true;
+        public bool CreatePoisonCtrEnabled
+        {
+            get { return createPoisonCtrEnabled; }
+
+            set
+            {
+                createPoisonCtrEnabled = value;
+                OnPropertyChanged("CreatePoisonCtrEnabled");
+            }
+        }
 
     }
 }

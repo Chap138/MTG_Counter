@@ -27,9 +27,6 @@ namespace MTG_Counter
         {
             base.OnAppearing();
 
-            //DeleteTable();//DELETE WHEN FINISHED WITH PROJECT
-            //CreatePlayerTable();
-
             using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
                 if (conn.Table<Player>().Count() == 0)
@@ -41,14 +38,19 @@ namespace MTG_Counter
 
                 foreach (Player row in playerList)
                 {
-                    //LifeLabel.Text = Convert.ToString(row.Life);
                     player.Life = row.Life;
+
                     player.CommTax = row.CommTax;
                     player.CommTaxRow = row.CommTaxRow;
                     player.CommTaxVis = row.CommTaxVis;
+
                     player.ExpCtr = row.ExpCtr;
                     player.ExpBtnRow = row.ExpBtnRow;
                     player.ExpVis = row.ExpVis;
+
+                    player.PoisonCtr = row.PoisonCtr;
+                    player.PoisonBtnRow = row.PoisonBtnRow;
+                    player.PoisonVis = row.PoisonVis;
 
                 }
 
@@ -125,14 +127,5 @@ namespace MTG_Counter
             player.PoisonCtr += 1;
         }
 
-        private void DeleteTable()
-        {
-            using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
-            {
-                //playerInfo.Clear();
-                conn.DropTable<Player>();
-                //conn.CreateTable<Player>();
-            }
-        }
     }
 }

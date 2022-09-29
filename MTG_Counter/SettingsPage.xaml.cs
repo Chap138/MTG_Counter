@@ -32,28 +32,22 @@ namespace MTG_Counter
                 foreach(Player row in playerList)
                 {
                     player.CreateCommTaxEnabled = row.CreateCommTaxEnabled;
+                    player.CreateExpCtrEnabled = row.CreateExpCtrEnabled;
+                    player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled;
                 }
             }
         }
 
         private void CreateCommTax_Clicked(object sender, EventArgs e)
         {
-            //player.CommTaxVis = true;
-            //CreateCommTax.IsEnabled = false;
             //player.CreateCommTaxEnabled = false;
-            //rowCount = ;
-            //player.NewBtnRow = rowCount;
-            //player.CommTaxRow = player.NewBtnRow;
-            player.CreateCommTaxEnabled = false;
 
             using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
                 foreach (Player row in playerList)
                 {
                     row.CommTaxVis = true;
-                    row.CreateCommTaxEnabled = false;
-                    //row.CommTaxVis = player.CommTaxVis;
-                    //row.NewBtnRow += 1;
+                    player.CreateCommTaxEnabled = row.CreateCommTaxEnabled = false;
                     row.CommTaxRow = row.NewBtnRow += 1;
                     conn.Update(row);
                     break;
@@ -63,24 +57,14 @@ namespace MTG_Counter
 
         private void CreateExp_Clicked(object sender, EventArgs e)
         {
-            //player.ExpVis = true;
-            CreateExp.IsEnabled = false;
-            //rowCount += 1;
-            //player.NewBtnRow = rowCount;
-
-            //player.CommTaxVis = true;
-            //CreateCommTax.IsEnabled = false;
-            //rowCount = ;
-            //player.NewBtnRow = rowCount;
-            //player.CommTaxRow = player.NewBtnRow;
+            //CreateExp.IsEnabled = false;
 
             using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
                 foreach (Player row in playerList)
                 {
                     row.ExpVis = true;
-                    //row.CommTaxVis = player.CommTaxVis;
-                    //row.NewBtnRow += 1;
+                    player.CreateExpCtrEnabled = row.CreateExpCtrEnabled = false;
                     row.ExpBtnRow = row.NewBtnRow += 1;
                     conn.Update(row);
                     break;
@@ -90,10 +74,18 @@ namespace MTG_Counter
 
         private void CreatePoison_Clicked(object sender, EventArgs e)
         {
-            player.ExpVis = true;
-            CreatePoison.IsEnabled = false;
-            rowCount += 1;
-            player.NewBtnRow = rowCount;
+
+            using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
+            {
+                foreach (Player row in playerList)
+                {
+                    row.PoisonVis = true;
+                    player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = false;
+                    row.PoisonBtnRow = row.NewBtnRow += 1;
+                    conn.Update(row);
+                    break;
+                }
+            }
         }
 
 
@@ -109,7 +101,7 @@ namespace MTG_Counter
         private void CreateCommDmg2_Clicked(object sender, EventArgs e)
         {
             player.CmmDmg2Vis = true;
-            CreateCommDmg2.IsEnabled = false;
+            //CreateCommDmg2.IsEnabled = false;
             rowCount += 1;
             player.NewBtnRow = rowCount;
         }
@@ -117,7 +109,7 @@ namespace MTG_Counter
         private void CreateCommDmg3_Clicked(object sender, EventArgs e)
         {
             player.CmmDmg3Vis = true;
-            CreateCommDmg3.IsEnabled = false;
+            //CreateCommDmg3.IsEnabled = false;
             rowCount += 1;
             player.NewBtnRow = rowCount;
         }
@@ -125,7 +117,7 @@ namespace MTG_Counter
         private void CreateCommDmg4_Clicked(object sender, EventArgs e)
         {
             player.CmmDmg4Vis = true;
-            CreateCommDmg4.IsEnabled = false;
+            //CreateCommDmg4.IsEnabled = false;
             rowCount += 1;
             player.NewBtnRow = rowCount;
             DisplayAlert("Row Count", Convert.ToString(player.NewBtnRow), "Cancel");
@@ -134,34 +126,44 @@ namespace MTG_Counter
 
 
 
-        private void ResetBtn_Clicked(object sender, EventArgs e)
+        private async void ResetBtn_Clicked(object sender, EventArgs e)
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
+            bool confirmReset = await DisplayAlert("", "Are you sure you want to reset the buttons?", "Yes", "No");
+
+            if (confirmReset)
             {
-                if (conn.Table<Player>().Count() == 0)
+                using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
                 {
-                    int count = conn.Table<Player>().Count();//DELETE 
-                    conn.Insert(player);
-                }
-                playerList = conn.Table<Player>().ToList();
-                foreach (Player row in playerList)
-                {
-                    row.Life = 40;
-                    row.NewBtnRow = 0;
-                    row.CommTax = 0;
-                    player.CreateCommTaxEnabled = row.CreateCommTaxEnabled = true;
-                    row.CommTaxRow = 0;
-                    row.CommTaxVis = false;
-                    row.ExpCtr = 0;
-                    row.ExpBtnRow = 0;
-                    row.ExpVis = false;
-                    //row.PoisonCtr = player.PoisonCtr;
-                    row.PoisonVis = false;
-                    //playerList[0].PoisonBtnRow = player.Life;
-                    //int rows = conn.Update(row);
-                    conn.Update(row);
-                }
-            }
+                    if (conn.Table<Player>().Count() == 0)
+                    {
+                        int count = conn.Table<Player>().Count();//DELETE 
+                        conn.Insert(player);
+                    }
+                    playerList = conn.Table<Player>().ToList();
+                    foreach (Player row in playerList)
+                    {
+                        row.Life = 40;
+                        row.NewBtnRow = 0;//Need 
+
+                        row.CommTax = 0;
+                        player.CreateCommTaxEnabled = row.CreateCommTaxEnabled = true;
+                        row.CommTaxRow = 0;
+                        row.CommTaxVis = false;
+
+                        row.ExpCtr = 0;
+                        player.CreateExpCtrEnabled = row.CreateExpCtrEnabled = true;
+                        row.ExpBtnRow = 0;
+                        row.ExpVis = false;
+
+                        row.PoisonCtr = 0;
+                        player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = true;
+                        row.PoisonBtnRow = 0;
+                        row.PoisonVis = false;
+
+                        conn.Update(row);
+                    }
+                }//end using statement
+            }//end if
         }
     }
 }
