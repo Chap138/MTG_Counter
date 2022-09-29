@@ -235,6 +235,18 @@ namespace MTG_Counter
             }
         }
 
+        private bool createCommTaxEnabled = true;
+        public bool CreateCommTaxEnabled
+        {
+            get { return createCommTaxEnabled; }
+
+            set
+            {
+                createCommTaxEnabled = value;
+                OnPropertyChanged("CreateCommTaxEnabled");
+            }
+        }
+
 
     }
 }

@@ -43,6 +43,13 @@ namespace MTG_Counter
                 {
                     //LifeLabel.Text = Convert.ToString(row.Life);
                     player.Life = row.Life;
+                    player.CommTax = row.CommTax;
+                    player.CommTaxRow = row.CommTaxRow;
+                    player.CommTaxVis = row.CommTaxVis;
+                    player.ExpCtr = row.ExpCtr;
+                    player.ExpBtnRow = row.ExpBtnRow;
+                    player.ExpVis = row.ExpVis;
+
                 }
 
                 //player.Life = playerList[0].Life;
@@ -54,65 +61,27 @@ namespace MTG_Counter
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
-                //if (conn.Table<Player>().Count() <= 0)
-                //{
-                //    DisplayAlert("!", conn.Table<Player>().Count().ToString(), "OK");
-                //}
                 if (conn.Table<Player>().Count() == 0)
                 {
                     int count = conn.Table<Player>().Count();//DELETE 
                     conn.Insert(player);
                 }
-                //playerList[0].Life = player.Life;
 
                 foreach(Player row in playerList)
                 {
                     row.Life = player.Life;
-                    //int rows = conn.Update(row);
+                    row.CommTax = player.CommTax;
+                    row.ExpCtr = player.ExpCtr;
+                    row.PoisonCtr = player.PoisonCtr;
                     conn.Update(row);
                 }
                 
             }
         }
 
-        //private void CreatePlayerTable()
-        //{
-        //    using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
-        //    {
-        //        conn.CreateTable<Player>();
-
-        //        if (conn.Table<Player>().Count() <= 0)
-        //        {
-        //            conn.Insert(player);
-        //            //playerInfo = conn.Table<Player>().ToList();
-        //        }
-        //    }
-        //}
-
         private void SettingsBtn_Clicked(object sender, EventArgs e)
         {
-        //    using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
-        //    {
-        //        if (conn.Table<Player>().Count() == 0)
-        //        {
-        //            int count = conn.Table<Player>().Count();//DELETE 
-        //            conn.Insert(player);
-        //        }
-
-        //        playerList[0].Life = player.Life;
-        //        playerList[0].CommTax = player.CommTax;
-        //        playerList[0].CommTaxRow = player.CommTaxRow;
-        //        playerList[0].CommTaxVis = player.CommTaxVis;
-        //        playerList[0].ExpCtr = player.ExpCtr;
-        //        playerList[0].ExpBtnRow = player.ExpBtnRow;
-        //        playerList[0].ExpVis = player.ExpVis;
-        //        playerList[0].PoisonCtr = player.PoisonCtr;
-        //        playerList[0].PoisonVis = player.PoisonVis;
-        //        //playerList[0].PoisonBtnRow = player.Life;
-
-        //        conn.Update(player);
-        //    }
-            Navigation.PushAsync(new SettingsPage(player));
+            Navigation.PushAsync(new SettingsPage(player, playerList));
         }
 
         private void LifeMinusBtn_Clicked(object sender, EventArgs e)

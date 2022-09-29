@@ -13,7 +13,8 @@
                  FontAttributes="Bold"
                  TextColor="White"
                  Text="Create Commander Tax Counter"
-                 Clicked="CreateCommTax_Clicked">
+                 Clicked="CreateCommTax_Clicked"
+                 IsEnabled="{Binding CreateCommTaxEnabled}">
             </Button>
 
             <Button  x:Name="CreateExp"
@@ -74,6 +75,16 @@
                  TextColor="White"
                  Text="Create a Commander damage Counter"
                  Clicked="CreateCommDmg4_Clicked">
+            </Button>
+
+            <Button  x:Name="ResetBtn"
+                 Margin="10,15,-15,5"
+                 CornerRadius="10"
+                 BackgroundColor="Blue"
+                 FontAttributes="Bold"
+                 TextColor="White"
+                 Text="Reset Button Values"
+                 Clicked="ResetBtn_Clicked">
             </Button>
 
 
