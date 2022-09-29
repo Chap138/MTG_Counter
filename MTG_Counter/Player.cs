@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms.Xaml;
+using SQLite;
 
 namespace MTG_Counter
 {
-    class Player : INotifyPropertyChanged
+    /// <summary> 
+    /// <remarks> All the properties for the player's button customization. Also properties for counters. </remarks>
+    /// </summary>
+
+    public class Player : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string PropertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
+
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; set; }
 
         private int life = 40;
         public int Life
@@ -106,6 +114,127 @@ namespace MTG_Counter
                 OnPropertyChanged("CommDmg4");
             }
         }
+
+        private bool commTaxVis = false;
+        public bool CommTaxVis
+        {
+            get { return commTaxVis; }
+
+            set
+            {
+                commTaxVis = value;
+                OnPropertyChanged("CommTaxVis");
+            }
+        }
+
+        private int commTaxRow = 0;
+        public int CommTaxRow
+        {
+            get { return commTaxRow; }
+
+            set
+            {
+                commTaxRow = value;
+                OnPropertyChanged("CommTaxRow");
+            }
+        }
+
+        private bool expVis = false;
+        public bool ExpVis
+        {
+            get { return expVis; }
+
+            set
+            {
+                expVis = value;
+                OnPropertyChanged("ExpVis");
+            }
+        }
+
+        private bool poisonVis = false;
+        public bool PoisonVis
+        {
+            get { return poisonVis; }
+
+            set
+            {
+                poisonVis = value;
+                OnPropertyChanged("PoisonVis");
+            }
+        }
+
+        private bool cmmDmg1Vis = false;
+        public bool CmmDmg1Vis
+        {
+            get { return cmmDmg1Vis; }
+
+            set
+            {
+                cmmDmg1Vis = value;
+                OnPropertyChanged("CmmDmg1Vis");
+            }
+        }
+
+        private bool cmmDmg2Vis = false;
+        public bool CmmDmg2Vis
+        {
+            get { return cmmDmg2Vis; }
+
+            set
+            {
+                cmmDmg2Vis = value;
+                OnPropertyChanged("CmmDmg2Vis");
+            }
+        }
+
+        private bool cmmDmg3Vis = false;
+        public bool CmmDmg3Vis
+        {
+            get { return cmmDmg3Vis; }
+
+            set
+            {
+                cmmDmg3Vis = value;
+                OnPropertyChanged("CmmDmg3Vis");
+            }
+        }
+
+        private bool cmmDmg4Vis = false;
+        public bool CmmDmg4Vis
+        {
+            get { return cmmDmg4Vis; }
+
+            set
+            {
+                cmmDmg4Vis = value;
+                OnPropertyChanged("CmmDmg4Vis");
+            }
+        }
+
+        private int newBtnRow = 0;
+        public int NewBtnRow
+        {
+            get { return newBtnRow; }
+
+            set
+            {
+                newBtnRow = value;
+                OnPropertyChanged("NewBtnRow");
+            }
+        }
+
+        private int expBtnRow = 0;
+        public int ExpBtnRow
+        {
+            get { return expBtnRow ; }
+
+            set
+            {
+                expBtnRow = value;
+                OnPropertyChanged("ExpBtnRow");
+            }
+        }
+
 
     }
 }

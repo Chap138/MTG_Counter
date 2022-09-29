@@ -1,12 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:mtg_counter="clr-namespace:MTG_Counter"
+             x:DataType="mtg_counter:Player"
              x:Class="MTG_Counter.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button  x:Name="CreateCommTax"
+                 Margin="10,15,-15,5"
+                 CornerRadius="10"
+                 BackgroundColor="Green"
+                 FontAttributes="Bold"
+                 TextColor="White"
+                 Text="Create Commander Tax Counter"
+                 Clicked="CreateCommTax_Clicked">
+            </Button>
+
+            <Button  x:Name="CreateExp"
+                 Margin="10,15,-15,5"
+                 CornerRadius="10"
+                 BackgroundColor="Green"
+                 FontAttributes="Bold"
+                 TextColor="White"
+                 Text="Create Experience Counter"
+                 Clicked="CreateExp_Clicked">
+            </Button>
+
+            <Button  x:Name="CreatePoison"
+                 Margin="10,15,-15,5"
+                 CornerRadius="10"
+                 BackgroundColor="Green"
+                 FontAttributes="Bold"
+                 TextColor="White"
+                 Text="Create Poison Counter"
+                 Clicked="CreatePoison_Clicked">
+            </Button>
+            
+            <Button  x:Name="CreateCommDmg1"
+                 Margin="10,15,-15,5"
+                 CornerRadius="10"
+                 BackgroundColor="Green"
+                 FontAttributes="Bold"
+                 TextColor="White"
+                 Text="Create a Commander damage Counter"
+                 Clicked="CreateCommDmg1_Clicked">
+            </Button>
+
+            <Button  x:Name="CreateCommDmg2"
+                 Margin="10,15,-15,5"
+                 CornerRadius="10"
+                 BackgroundColor="Green"
+                 FontAttributes="Bold"
+                 TextColor="White"
+                 Text="Create a Commander damage Counter"
+                 Clicked="CreateCommDmg2_Clicked">
+            </Button>
+
+            <Button  x:Name="CreateCommDmg3"
+                 Margin="10,15,-15,5"
+                 CornerRadius="10"
+                 BackgroundColor="Green"
+                 FontAttributes="Bold"
+                 TextColor="White"
+                 Text="Create a Commander damage Counter"
+                 Clicked="CreateCommDmg3_Clicked">
+            </Button>
+
+            <Button  x:Name="CreateCommDmg4"
+                 Margin="10,15,-15,5"
+                 CornerRadius="10"
+                 BackgroundColor="Green"
+                 FontAttributes="Bold"
+                 TextColor="White"
+                 Text="Create a Commander damage Counter"
+                 Clicked="CreateCommDmg4_Clicked">
+            </Button>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
