@@ -187,6 +187,18 @@ namespace MTG_Counter
             }
         }
 
+        private int commDmgBtnRow1 = 0;
+        public int CommDmgBtnRow1
+        {
+            get { return commDmgBtnRow1; }
+
+            set
+            {
+                commDmgBtnRow1 = value;
+                OnPropertyChanged("CommDmgBtnRow1");
+            }
+        }
+
         private bool cmmDmg2Vis = false;
         public bool CmmDmg2Vis
         {
@@ -196,6 +208,18 @@ namespace MTG_Counter
             {
                 cmmDmg2Vis = value;
                 OnPropertyChanged("CmmDmg2Vis");
+            }
+        }
+
+        private int commDmgBtnRow2 = 0;
+        public int CommDmgBtnRow2
+        {
+            get { return commDmgBtnRow2; }
+
+            set
+            {
+                commDmgBtnRow2 = value;
+                OnPropertyChanged("CommDmgBtnRow2");
             }
         }
 
@@ -211,6 +235,18 @@ namespace MTG_Counter
             }
         }
 
+        private int commDmgBtnRow3 = 0;
+        public int CommDmgBtnRow3
+        {
+            get { return commDmgBtnRow3; }
+
+            set
+            {
+                commDmgBtnRow3 = value;
+                OnPropertyChanged("CommDmgBtnRow3");
+            }
+        }
+
         private bool cmmDmg4Vis = false;
         public bool CmmDmg4Vis
         {
@@ -220,6 +256,18 @@ namespace MTG_Counter
             {
                 cmmDmg4Vis = value;
                 OnPropertyChanged("CmmDmg4Vis");
+            }
+        }
+
+        private int commDmgBtnRow4 = 0;
+        public int CommDmgBtnRow4
+        {
+            get { return commDmgBtnRow4; }
+
+            set
+            {
+                commDmgBtnRow4 = value;
+                OnPropertyChanged("CommDmgBtnRow4");
             }
         }
 
@@ -282,5 +330,19 @@ namespace MTG_Counter
             }
         }
 
+        private bool createCommDmgEnable = true;
+        public bool CreateCommDmgEnable
+        {
+            get { return createCommDmgEnable; }
+
+            set
+            {
+                createCommDmgEnable = value;
+                OnPropertyChanged("CreateCommDmgEnable");
+            }
+        }
+
+        //private int commDmgBtnCount = 0;
+        public int CommDmgButtonCount { get; set; } = 0;
     }
 }

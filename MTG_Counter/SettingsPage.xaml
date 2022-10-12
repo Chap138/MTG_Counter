@@ -47,7 +47,7 @@
                  IsEnabled="{Binding CreatePoisonCtrEnabled}">
             </Button>
             
-            <Button  x:Name="CreateCommDmg1"
+            <Button  x:Name="CreateCommDmg"
                  Margin="10,15,10,10"
                  CornerRadius="0"
                  BackgroundColor="Green"
@@ -55,7 +55,8 @@
                  TextColor="White"
                  FontSize="15"
                  Text="Create a Commander damage Counter"
-                 Clicked="CreateCommDmg1_Clicked">
+                 Clicked="CreateCommDmg_Clicked"
+                 IsEnabled="{Binding CreateCommDmgEnable}">
             </Button>
 
             <!--<Button  x:Name="CreateCommDmg2"

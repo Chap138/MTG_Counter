@@ -52,6 +52,22 @@ namespace MTG_Counter
                     player.PoisonBtnRow = row.PoisonBtnRow;
                     player.PoisonVis = row.PoisonVis;
 
+                    player.CommDmg1 = row.CommDmg1;
+                    player.CommDmgBtnRow1 = row.CommDmgBtnRow1;
+                    player.CmmDmg1Vis = row.CmmDmg1Vis;
+
+                    player.CommDmg2 = row.CommDmg2;
+                    player.CommDmgBtnRow2 = row.CommDmgBtnRow2;
+                    player.CmmDmg2Vis = row.CmmDmg2Vis;
+
+                    player.CommDmg3 = row.CommDmg3;
+                    player.CommDmgBtnRow3 = row.CommDmgBtnRow3;
+                    player.CmmDmg3Vis = row.CmmDmg3Vis;
+
+                    player.CommDmg4 = row.CommDmg4;
+                    player.CommDmgBtnRow4 = row.CommDmgBtnRow4;
+                    player.CmmDmg4Vis = row.CmmDmg4Vis;
+
                 }
 
                 //player.Life = playerList[0].Life;

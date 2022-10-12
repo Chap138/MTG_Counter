@@ -27,9 +27,9 @@ namespace MTG_Counter
 
         protected override void OnAppearing()
         {
-            using(SQLiteConnection conn = new SQLiteConnection(App.FileName))
+            using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
-                foreach(Player row in playerList)
+                foreach (Player row in playerList)
                 {
                     player.CreateCommTaxEnabled = row.CreateCommTaxEnabled;
                     player.CreateExpCtrEnabled = row.CreateExpCtrEnabled;
@@ -89,41 +89,79 @@ namespace MTG_Counter
         }
 
 
-        #region
-        private void CreateCommDmg1_Clicked(object sender, EventArgs e)
+        private void CreateCommDmg_Clicked(object sender, EventArgs e)
         {
-            player.CmmDmg1Vis = true;
-            CreateCommDmg1.IsEnabled = false;
-            rowCount += 1;
-            player.NewBtnRow = rowCount;
+            using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
+            {
+                foreach (Player row in playerList)
+                {
+
+                    if (row.CommDmgButtonCount == 0)
+                    {
+                        row.CommDmgButtonCount += 1;
+
+                        row.CmmDmg1Vis = true;
+                        row.CommDmgBtnRow1 = row.NewBtnRow += 1;
+                        conn.Update(row);
+                        break;
+                    }
+                    else if (row.CommDmgButtonCount == 1)
+                    {
+                        row.CommDmgButtonCount += 1;
+
+                        row.CmmDmg2Vis = true;
+                        row.CommDmgBtnRow2 = row.NewBtnRow += 1;
+                        conn.Update(row);
+                        break;
+                    }
+                    else if (row.CommDmgButtonCount == 2)
+                    {
+                        row.CommDmgButtonCount += 1;
+
+                        row.CmmDmg3Vis = true;
+                        row.CommDmgBtnRow3 = row.NewBtnRow += 1;
+                        conn.Update(row);
+                        break;
+                    }
+                    else if (row.CommDmgButtonCount == 3)
+                    {
+                        row.CommDmgButtonCount += 1;
+
+                        row.CmmDmg4Vis = true;
+                        player.CreateCommDmgEnable = row.CreateCommDmgEnable = false;
+                        row.CommDmgBtnRow4 = row.NewBtnRow += 1;
+                        conn.Update(row);
+                        break;
+                    }
+                }
+            }
         }
 
-        private void CreateCommDmg2_Clicked(object sender, EventArgs e)
-        {
-            player.CmmDmg2Vis = true;
-            //CreateCommDmg2.IsEnabled = false;
-            rowCount += 1;
-            player.NewBtnRow = rowCount;
-        }
+        //private void CreateCommDmg2_Clicked(object sender, EventArgs e)
+        //{
+        //    player.CmmDmg2Vis = true;
+        //    //CreateCommDmg2.IsEnabled = false;
+        //    rowCount += 1;
+        //    player.NewBtnRow = rowCount;
+        //}
 
-        private void CreateCommDmg3_Clicked(object sender, EventArgs e)
-        {
-            player.CmmDmg3Vis = true;
-            //CreateCommDmg3.IsEnabled = false;
-            rowCount += 1;
-            player.NewBtnRow = rowCount;
-        }
+        //private void CreateCommDmg3_Clicked(object sender, EventArgs e)
+        //{
+        //    player.CmmDmg3Vis = true;
+        //    //CreateCommDmg3.IsEnabled = false;
+        //    rowCount += 1;
+        //    player.NewBtnRow = rowCount;
+        //}
 
-        private void CreateCommDmg4_Clicked(object sender, EventArgs e)
-        {
-            player.CmmDmg4Vis = true;
-            //CreateCommDmg4.IsEnabled = false;
-            rowCount += 1;
-            player.NewBtnRow = rowCount;
-            DisplayAlert("Row Count", Convert.ToString(player.NewBtnRow), "Cancel");
-        }
-#endregion 
-
+        //private void CreateCommDmg4_Clicked(object sender, EventArgs e)
+        //{
+        //    player.CmmDmg4Vis = true;
+        //    //CreateCommDmg4.IsEnabled = false;
+        //    rowCount += 1;
+        //    player.NewBtnRow = rowCount;
+        //    DisplayAlert("Row Count", Convert.ToString(player.NewBtnRow), "Cancel");
+        //}
+        //#endregion
 
 
         private async void ResetBtn_Clicked(object sender, EventArgs e)
@@ -160,10 +198,33 @@ namespace MTG_Counter
                         row.PoisonBtnRow = 0;
                         row.PoisonVis = false;
 
+                        row.CommDmg1 = 0;
+                        //player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = true; //Minus commDmgButton number of buttons created
+                        row.CommDmgBtnRow1 = 0;
+                        row.CmmDmg1Vis = false;
+
+                        row.CommDmg2 = 0;
+                        //player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = true; //Minus commDmgButton number of buttons created
+                        row.CommDmgBtnRow2 = 0;
+                        row.CmmDmg2Vis = false;
+
+                        row.CommDmg3 = 0;
+                        //player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = true; //Minus commDmgButton number of buttons created
+                        row.CommDmgBtnRow3 = 0;
+                        row.CmmDmg3Vis = false;
+
+                        row.CommDmg4 = 0;
+                        //player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = true; //Minus commDmgButton number of buttons created
+                        row.CommDmgBtnRow4 = 0;
+                        row.CmmDmg4Vis = false;
+
+                        player.CreateCommDmgEnable = row.CreateCommDmgEnable = true;
+                        row.CommDmgButtonCount = 0;
+
                         conn.Update(row);
                     }
                 }//end using statement
             }//end if
-        }
+        }//end ResetBtn_Clicked
     }
 }
