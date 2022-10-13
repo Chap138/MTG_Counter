@@ -103,10 +103,10 @@
     <AndroidResource Include="Resources\drawable\PlusIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\NewMinusIcon.png" />
+    <AndroidResource Include="Resources\drawable\NewPlusIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\NewPlusIcon.png" />
+    <AndroidResource Include="Resources\drawable\NewMinusIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
