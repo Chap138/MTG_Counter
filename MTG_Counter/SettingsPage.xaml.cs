@@ -34,9 +34,25 @@ namespace MTG_Counter
                     player.CreateCommTaxEnabled = row.CreateCommTaxEnabled;
                     player.CreateExpCtrEnabled = row.CreateExpCtrEnabled;
                     player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled;
+                    player.CreateCommDmgEnable = row.CreateCommDmgEnable;
+                    player.CommDmgButtonCount = row.CommDmgButtonCount;
                 }
             }
         }
+        //protected override void OnDisappearing()
+        //{
+        //    using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
+        //    {
+        //        foreach (Player row in playerList)
+        //        {
+        //            row.CreateCommTaxEnabled = player.CreateCommTaxEnabled;
+        //            row.CreateExpCtrEnabled = player.CreateExpCtrEnabled;
+        //            row.CreatePoisonCtrEnabled = player.CreatePoisonCtrEnabled;
+        //            row.CreateCommDmgEnable = player.CreateCommDmgEnable;
+        //            row.CommDmgButtonCount = player.CommDmgButtonCount;
+        //        }
+        //    }
+        //}
 
         private void CreateCommTax_Clicked(object sender, EventArgs e)
         {
@@ -89,7 +105,7 @@ namespace MTG_Counter
         }
 
 
-        private void CreateCommDmg_Clicked(object sender, EventArgs e)
+        private async void CreateCommDmg_Clicked(object sender, EventArgs e)
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
@@ -98,40 +114,57 @@ namespace MTG_Counter
 
                     if (row.CommDmgButtonCount == 0)
                     {
-                        row.CommDmgButtonCount += 1;
-
-                        row.CmmDmg1Vis = true;
-                        row.CommDmgBtnRow1 = row.NewBtnRow += 1;
-                        conn.Update(row);
-                        break;
+                        //string name = DisplayAlert("Commander name?", "Which commander do you need a counter for?", "Cancel");
+                        string name = await DisplayPromptAsync("Commander Name", "Which commander do you need a counter for?", "Done", "Cancel");
+                        if (name != null)
+                        {
+                            row.CommDmgName1 = name + ":";
+                            row.CommDmgButtonCount = player.CommDmgButtonCount += 1;
+                            row.CmmDmg1Vis = true;
+                            row.CommDmgBtnRow1 = row.NewBtnRow += 1;
+                            conn.Update(row);
+                        }
+                        //break;
                     }
                     else if (row.CommDmgButtonCount == 1)
                     {
-                        row.CommDmgButtonCount += 1;
-
-                        row.CmmDmg2Vis = true;
-                        row.CommDmgBtnRow2 = row.NewBtnRow += 1;
-                        conn.Update(row);
-                        break;
+                        string name = await DisplayPromptAsync("Commander Name", "Which commander do you need a counter for?", "Done", "Cancel");
+                        if (name != null)
+                        {
+                            row.CommDmgName2 = name + ":";
+                            row.CommDmgButtonCount = player.CommDmgButtonCount += 1;
+                            row.CmmDmg2Vis = true;
+                            row.CommDmgBtnRow2 = row.NewBtnRow += 1;
+                            conn.Update(row);
+                        }
+                        //break;
                     }
                     else if (row.CommDmgButtonCount == 2)
                     {
-                        row.CommDmgButtonCount += 1;
-
-                        row.CmmDmg3Vis = true;
-                        row.CommDmgBtnRow3 = row.NewBtnRow += 1;
-                        conn.Update(row);
-                        break;
+                        string name = await DisplayPromptAsync("Commander Name", "Which commander do you need a counter for?", "Done", "Cancel");
+                        if (name != null)
+                        {
+                            row.CommDmgName3 = name + ":";
+                            row.CommDmgButtonCount = player.CommDmgButtonCount += 1;
+                            row.CmmDmg3Vis = true;
+                            row.CommDmgBtnRow3 = row.NewBtnRow += 1;
+                            conn.Update(row);
+                        }
+                        //break;
                     }
                     else if (row.CommDmgButtonCount == 3)
                     {
-                        row.CommDmgButtonCount += 1;
-
-                        row.CmmDmg4Vis = true;
-                        player.CreateCommDmgEnable = row.CreateCommDmgEnable = false;
-                        row.CommDmgBtnRow4 = row.NewBtnRow += 1;
-                        conn.Update(row);
-                        break;
+                        string name = await DisplayPromptAsync("Commander Name", "Which commander do you need a counter for?", "Done", "Cancel");
+                        if (name != null)
+                        {
+                            row.CommDmgName4 = name + ":";
+                            row.CommDmgButtonCount = player.CommDmgButtonCount += 1;
+                            row.CmmDmg4Vis = true;
+                            row.CreateCommDmgEnable = player.CreateCommDmgEnable = false;
+                            row.CommDmgBtnRow4 = row.NewBtnRow += 1;
+                            conn.Update(row);
+                        }
+                       // break;
                     }
                 }
             }
@@ -199,22 +232,18 @@ namespace MTG_Counter
                         row.PoisonVis = false;
 
                         row.CommDmg1 = 0;
-                        //player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = true; //Minus commDmgButton number of buttons created
                         row.CommDmgBtnRow1 = 0;
                         row.CmmDmg1Vis = false;
 
                         row.CommDmg2 = 0;
-                        //player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = true; //Minus commDmgButton number of buttons created
                         row.CommDmgBtnRow2 = 0;
                         row.CmmDmg2Vis = false;
 
                         row.CommDmg3 = 0;
-                        //player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = true; //Minus commDmgButton number of buttons created
                         row.CommDmgBtnRow3 = 0;
                         row.CmmDmg3Vis = false;
 
                         row.CommDmg4 = 0;
-                        //player.CreatePoisonCtrEnabled = row.CreatePoisonCtrEnabled = true; //Minus commDmgButton number of buttons created
                         row.CommDmgBtnRow4 = 0;
                         row.CmmDmg4Vis = false;
 

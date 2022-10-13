@@ -67,10 +67,11 @@ namespace MTG_Counter
                 OnPropertyChanged("PoisonCtr");
             }
         }
+
         private int commDmg1 = 0;
         public int CommDmg1
         {
-            get { return commDmg2; }
+            get { return commDmg1; }
 
             set
             {
@@ -199,6 +200,17 @@ namespace MTG_Counter
             }
         }
 
+        private string commDmgName1;
+        public string CommDmgName1
+        {
+            get { return commDmgName1; }
+            set
+            {
+                commDmgName1 = value;
+                OnPropertyChanged("CommDmgName1");
+            }
+        }
+
         private bool cmmDmg2Vis = false;
         public bool CmmDmg2Vis
         {
@@ -220,6 +232,17 @@ namespace MTG_Counter
             {
                 commDmgBtnRow2 = value;
                 OnPropertyChanged("CommDmgBtnRow2");
+            }
+        }
+
+        private string commDmgName2;
+        public string CommDmgName2
+        {
+            get { return commDmgName2; }
+            set
+            {
+                commDmgName2 = value;
+                OnPropertyChanged("CommDmgName2");
             }
         }
 
@@ -246,6 +269,16 @@ namespace MTG_Counter
                 OnPropertyChanged("CommDmgBtnRow3");
             }
         }
+        private string commDmgName3;
+        public string CommDmgName3
+        {
+            get { return commDmgName3; }
+            set
+            {
+                commDmgName3 = value;
+                OnPropertyChanged("CommDmgName3");
+            }
+        }
 
         private bool cmmDmg4Vis = false;
         public bool CmmDmg4Vis
@@ -268,6 +301,16 @@ namespace MTG_Counter
             {
                 commDmgBtnRow4 = value;
                 OnPropertyChanged("CommDmgBtnRow4");
+            }
+        }
+        private string commDmgName4;
+        public string CommDmgName4
+        {
+            get { return commDmgName4; }
+            set
+            {
+                commDmgName4 = value;
+                OnPropertyChanged("CommDmgName4");
             }
         }
 
