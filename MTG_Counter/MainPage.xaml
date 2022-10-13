@@ -37,7 +37,7 @@
                  BackgroundColor="Green"
                  FontAttributes="Bold"
                  TextColor="White"
-                 ImageSource="MinusIcon.png"
+                 ImageSource="NewMinusIcon.png"
                  Clicked="LifeMinusBtn_Clicked">
         </Button>
 
@@ -66,7 +66,7 @@
                  FontAttributes="Bold"
                  TextColor="White"
                  FontSize="90"
-                 ImageSource="PlusIcon.png"
+                 ImageSource="NewPlusIcon.png"
                  Clicked="LifePlusBtn_Clicked"/>
 
         <Button x:Name="CommTaxMinusBtn"

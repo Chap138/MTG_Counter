@@ -20,7 +20,7 @@ namespace MTG_Counter
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
             FileName = fileName;
-            //DeleteTable();//Delete
+            //DeleteTable();
             CreatePlayerTable();
         }
 
