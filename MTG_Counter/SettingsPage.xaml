@@ -59,39 +59,6 @@
                  IsEnabled="{Binding CreateCommDmgEnable}">
             </Button>
 
-            <!--<Button  x:Name="CreateCommDmg2"
-                 Margin="10,15,10,0"
-                 CornerRadius="10"
-                 BackgroundColor="Green"
-                 FontAttributes="Bold"
-                 TextColor="White"
-                 FontSize="15"
-                 Text="Create a Commander damage Counter"
-                 Clicked="CreateCommDmg2_Clicked">
-            </Button>
-
-            <Button  x:Name="CreateCommDmg3"
-                 Margin="10,15,10,0"
-                 CornerRadius="10"
-                 BackgroundColor="Green"
-                 FontAttributes="Bold"
-                 TextColor="White"
-                 FontSize="15"
-                 Text="Create a Commander damage Counter"
-                 Clicked="CreateCommDmg3_Clicked">
-            </Button>
-
-            <Button  x:Name="CreateCommDmg4"
-                 Margin="10,15,10,0"
-                 CornerRadius="10"
-                 BackgroundColor="Green"
-                 FontAttributes="Bold"
-                 TextColor="White"
-                 FontSize="15"
-                 Text="Create a Commander damage Counter"
-                 Clicked="CreateCommDmg4_Clicked">
-            </Button>-->
-
             <Button  x:Name="ResetBtn"
                  Margin="10,15,10,0"
                  CornerRadius="525"
@@ -105,8 +72,7 @@
                  HorizontalOptions="Center"
                  VerticalOptions="EndAndExpand">
             </Button>
-
-
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

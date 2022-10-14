@@ -33,6 +33,11 @@ namespace MTG_Counter
                 OnPropertyChanged("Life");
             }
         }
+
+        public int CommDmgButtonCount { get; set; } = 0;
+
+
+        #region COMMANDER TAX
         private int commTax = 0;
         public int CommTax
         {
@@ -44,75 +49,16 @@ namespace MTG_Counter
                 OnPropertyChanged("CommTax");
             }
         }
-        private int expCtr = 0;
-        public int ExpCtr
+
+        private bool createCommTaxEnabled = true;
+        public bool CreateCommTaxEnabled
         {
-            get { return expCtr; }
+            get { return createCommTaxEnabled; }
 
             set
             {
-                expCtr = value;
-                OnPropertyChanged("ExpCtr");
-            }
-        }
-
-        private int poisonCtr = 0;
-        public int PoisonCtr
-        {
-            get { return poisonCtr; }
-
-            set
-            {
-                poisonCtr = value;
-                OnPropertyChanged("PoisonCtr");
-            }
-        }
-
-        private int commDmg1 = 0;
-        public int CommDmg1
-        {
-            get { return commDmg1; }
-
-            set
-            {
-                commDmg1 = value;
-                OnPropertyChanged("CommDmg1");
-            }
-        }
-
-        private int commDmg2 = 0;
-        public int CommDmg2
-        {
-            get { return commDmg2; }
-
-            set
-            {
-                commDmg2 = value;
-                OnPropertyChanged("CommDmg2");
-            }
-        }
-
-        private int commDmg3 = 0;
-        public int CommDmg3
-        {
-            get { return commDmg3; }
-
-            set
-            {
-                commDmg3 = value;
-                OnPropertyChanged("CommDmg3");
-            }
-        }
-
-        private int commDmg4 = 0;
-        public int CommDmg4
-        {
-            get { return commDmg4; }
-
-            set
-            {
-                commDmg4 = value;
-                OnPropertyChanged("CommDmg4");
+                createCommTaxEnabled = value;
+                OnPropertyChanged("CreateCommTaxEnabled");
             }
         }
 
@@ -139,6 +85,33 @@ namespace MTG_Counter
                 OnPropertyChanged("CommTaxRow");
             }
         }
+        #endregion
+
+
+        #region EXPERIENCE
+        private int expCtr = 0;
+        public int ExpCtr
+        {
+            get { return expCtr; }
+
+            set
+            {
+                expCtr = value;
+                OnPropertyChanged("ExpCtr");
+            }
+        }
+
+        private bool createExpCtrEnabled = true;
+        public bool CreateExpCtrEnabled
+        {
+            get { return createExpCtrEnabled; }
+
+            set
+            {
+                createExpCtrEnabled = value;
+                OnPropertyChanged("CreateExpCtrEnabled");
+            }
+        }
 
         private bool expVis = false;
         public bool ExpVis
@@ -149,6 +122,45 @@ namespace MTG_Counter
             {
                 expVis = value;
                 OnPropertyChanged("ExpVis");
+            }
+        }
+
+        private int expBtnRow = 0;
+        public int ExpBtnRow
+        {
+            get { return expBtnRow; }
+
+            set
+            {
+                expBtnRow = value;
+                OnPropertyChanged("ExpBtnRow");
+            }
+        }
+        #endregion
+
+
+        #region POISON
+        private int poisonCtr = 0;
+        public int PoisonCtr
+        {
+            get { return poisonCtr; }
+
+            set
+            {
+                poisonCtr = value;
+                OnPropertyChanged("PoisonCtr");
+            }
+        }
+
+        private bool createPoisonCtrEnabled = true;
+        public bool CreatePoisonCtrEnabled
+        {
+            get { return createPoisonCtrEnabled; }
+
+            set
+            {
+                createPoisonCtrEnabled = value;
+                OnPropertyChanged("CreatePoisonCtrEnabled");
             }
         }
 
@@ -175,7 +187,32 @@ namespace MTG_Counter
                 OnPropertyChanged("PoisonBtnRow");
             }
         }
+        #endregion
 
+
+        #region COMMANDER DAMAGE 1
+        private string commDmgName1;
+        public string CommDmgName1
+        {
+            get { return commDmgName1; }
+            set
+            {
+                commDmgName1 = value;
+                OnPropertyChanged("CommDmgName1");
+            }
+        }
+
+        private int commDmg1 = 0;
+        public int CommDmg1
+        {
+            get { return commDmg1; }
+
+            set
+            {
+                commDmg1 = value;
+                OnPropertyChanged("CommDmg1");
+            }
+        }
         private bool cmmDmg1Vis = false;
         public bool CmmDmg1Vis
         {
@@ -199,18 +236,32 @@ namespace MTG_Counter
                 OnPropertyChanged("CommDmgBtnRow1");
             }
         }
+        #endregion
 
-        private string commDmgName1;
-        public string CommDmgName1
+
+        #region COMMANDER DAMAGE 2
+        private string commDmgName2;
+        public string CommDmgName2
         {
-            get { return commDmgName1; }
+            get { return commDmgName2; }
             set
             {
-                commDmgName1 = value;
-                OnPropertyChanged("CommDmgName1");
+                commDmgName2 = value;
+                OnPropertyChanged("CommDmgName2");
             }
         }
 
+        private int commDmg2 = 0;
+        public int CommDmg2
+        {
+            get { return commDmg2; }
+
+            set
+            {
+                commDmg2 = value;
+                OnPropertyChanged("CommDmg2");
+            }
+        }
         private bool cmmDmg2Vis = false;
         public bool CmmDmg2Vis
         {
@@ -234,15 +285,30 @@ namespace MTG_Counter
                 OnPropertyChanged("CommDmgBtnRow2");
             }
         }
+        #endregion
 
-        private string commDmgName2;
-        public string CommDmgName2
+
+        #region COMMANDER DAMAGE 3
+        private string commDmgName3;
+        public string CommDmgName3
         {
-            get { return commDmgName2; }
+            get { return commDmgName3; }
             set
             {
-                commDmgName2 = value;
-                OnPropertyChanged("CommDmgName2");
+                commDmgName3 = value;
+                OnPropertyChanged("CommDmgName3");
+            }
+        }
+
+        private int commDmg3 = 0;
+        public int CommDmg3
+        {
+            get { return commDmg3; }
+
+            set
+            {
+                commDmg3 = value;
+                OnPropertyChanged("CommDmg3");
             }
         }
 
@@ -269,14 +335,30 @@ namespace MTG_Counter
                 OnPropertyChanged("CommDmgBtnRow3");
             }
         }
-        private string commDmgName3;
-        public string CommDmgName3
+        #endregion
+
+
+        #region COMMANDER DAMAGE 4
+        private string commDmgName4;
+        public string CommDmgName4
         {
-            get { return commDmgName3; }
+            get { return commDmgName4; }
             set
             {
-                commDmgName3 = value;
-                OnPropertyChanged("CommDmgName3");
+                commDmgName4 = value;
+                OnPropertyChanged("CommDmgName4");
+            }
+        }
+
+        private int commDmg4 = 0;
+        public int CommDmg4
+        {
+            get { return commDmg4; }
+
+            set
+            {
+                commDmg4 = value;
+                OnPropertyChanged("CommDmg4");
             }
         }
 
@@ -303,76 +385,10 @@ namespace MTG_Counter
                 OnPropertyChanged("CommDmgBtnRow4");
             }
         }
-        private string commDmgName4;
-        public string CommDmgName4
-        {
-            get { return commDmgName4; }
-            set
-            {
-                commDmgName4 = value;
-                OnPropertyChanged("CommDmgName4");
-            }
-        }
+        #endregion
 
-        private int newBtnRow = 0;
-        public int NewBtnRow
-        {
-            get { return newBtnRow; }
 
-            set
-            {
-                newBtnRow = value;
-                OnPropertyChanged("NewBtnRow");
-            }
-        }
-
-        private int expBtnRow = 0;
-        public int ExpBtnRow
-        {
-            get { return expBtnRow; }
-
-            set
-            {
-                expBtnRow = value;
-                OnPropertyChanged("ExpBtnRow");
-            }
-        }
-
-        private bool createCommTaxEnabled = true;
-        public bool CreateCommTaxEnabled
-        {
-            get { return createCommTaxEnabled; }
-
-            set
-            {
-                createCommTaxEnabled = value;
-                OnPropertyChanged("CreateCommTaxEnabled");
-            }
-        }
-
-        private bool createExpCtrEnabled = true;
-        public bool CreateExpCtrEnabled
-        {
-            get { return createExpCtrEnabled; }
-
-            set
-            {
-                createExpCtrEnabled = value;
-                OnPropertyChanged("CreateExpCtrEnabled");
-            }
-        }
-        private bool createPoisonCtrEnabled = true;
-        public bool CreatePoisonCtrEnabled
-        {
-            get { return createPoisonCtrEnabled; }
-
-            set
-            {
-                createPoisonCtrEnabled = value;
-                OnPropertyChanged("CreatePoisonCtrEnabled");
-            }
-        }
-
+        #region CREATE COMMANDER DAMAGE ENABLE
         private bool createCommDmgEnable = true;
         public bool CreateCommDmgEnable
         {
@@ -384,8 +400,22 @@ namespace MTG_Counter
                 OnPropertyChanged("CreateCommDmgEnable");
             }
         }
+        #endregion
 
-        //private int commDmgBtnCount = 0;
-        public int CommDmgButtonCount { get; set; } = 0;
+
+        #region NEW BUTTON ROW
+        private int newBtnRow = 0;
+        public int NewBtnRow
+        {
+            get { return newBtnRow; }
+
+            set
+            {
+                newBtnRow = value;
+                OnPropertyChanged("NewBtnRow");
+            }
+        }
+        #endregion
+
     }
 }

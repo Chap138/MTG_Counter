@@ -26,10 +26,9 @@ namespace MTG_Counter
 
         private void CreatePlayerTable()
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
+            using (SQLiteConnection conn = new SQLiteConnection(FileName))
             {
                 conn.CreateTable<Player>();
-                //conn.Insert(player);
             }
         }//end CreatePlayerTable
 
@@ -37,9 +36,7 @@ namespace MTG_Counter
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
-                //playerInfo.Clear();
                 conn.DropTable<Player>();
-                //conn.CreateTable<Player>();
             }
         }//end DeleteTable
 

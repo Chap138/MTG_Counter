@@ -7,8 +7,7 @@
              BackgroundColor="Black">
 
     <ContentPage.ToolbarItems>
-    <ToolbarItem
-        x:Name="SettingsBtn"
+        <ToolbarItem x:Name="SettingsBtn"
                 Text="Settings"
                 Clicked="SettingsBtn_Clicked"/>
     </ContentPage.ToolbarItems>
@@ -37,7 +36,7 @@
                  BackgroundColor="Green"
                  FontAttributes="Bold"
                  TextColor="White"
-                 ImageSource="NewMinusIcon.png"
+                 ImageSource="MinusIcon.png"
                  Clicked="LifeMinusBtn_Clicked">
         </Button>
 
@@ -66,7 +65,7 @@
                  FontAttributes="Bold"
                  TextColor="White"
                  FontSize="90"
-                 ImageSource="NewPlusIcon.png"
+                 ImageSource="PlusIcon.png"
                  Clicked="LifePlusBtn_Clicked"/>
 
         <Button x:Name="CommTaxMinusBtn"
@@ -88,7 +87,7 @@
                  ImageSource="MinusIcon.png"
                  Clicked="CommTaxMinusBtn_Clicked"
                  IsVisible="{Binding CommTaxVis}"/>
-       
+
         <Button x:Name="CommTaxPlusBtn"
                  Margin="-5,5,10,0"
                  Padding="5,5,20,5"
@@ -127,7 +126,6 @@
                  ImageSource="MinusIcon.png"
                  Clicked="ExpMinusBtn_Clicked"
                  IsVisible="{Binding ExpVis}"/>
-        
 
         <Button x:Name="ExpPlusBtn"
                  Margin="-5,5,10,0"
@@ -147,7 +145,6 @@
                  ImageSource="PlusIcon.png"
                  Clicked="ExpPlusBtn_Clicked"
                  IsVisible="{Binding ExpVis}"/>
-       
 
         <Button x:Name="PoisonMinusBtn"
                  Margin="10,5,-15,0"
@@ -187,21 +184,6 @@
                  ImageSource="PlusIcon.png"
                  Clicked="PoisonPlusBtn_Clicked"
                  IsVisible="{Binding PoisonVis}"/>
-       
-
-        <!--<Button x:Name="CommDmgBtn1"
-                 Margin="10,5,10,0"
-                 Grid.Row="{Binding CommDmgBtnRow1}"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="4"
-                 CornerRadius="10"
-                 BackgroundColor="Gray"
-                 Text="{Binding CommDmg1}"
-                 TextTransform="None"
-                 FontAttributes="Bold"
-                 TextColor="White"
-                 FontSize="25"
-                 IsVisible="{Binding CmmDmg1Vis}"/>-->
 
         <Button x:Name="CommDmgBtn1MinusBtn"
                  Margin="10,5,-25,0"
@@ -242,20 +224,6 @@
                  Clicked="CommDmgBtn1PlusBtn_Clicked"
                  IsVisible="{Binding CmmDmg1Vis}"/>
 
-        <!--<Button x:Name="CommDmgBtn2"
-                 Margin="10,5,10,0"
-                 Grid.Row="{Binding CommDmgBtnRow2}"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="4"
-                 CornerRadius="5"
-                 BackgroundColor="Gray" 
-                 Text="{Binding CommDmg2}"
-                 TextTransform="None"
-                 FontAttributes="Bold"
-                 TextColor="White"
-                 FontSize="25"
-                 IsVisible="{Binding CmmDmg2Vis}"/>-->
-
         <Button x:Name="CommDmgBtn2MinusBtn"
                  Margin="10,5,-25,0"
                  Padding="25,5,45,5"
@@ -295,19 +263,6 @@
                  Clicked="CommDmgBtn2PlusBtn_Clicked"
                  IsVisible="{Binding CmmDmg2Vis}"/>
 
-        <!--<Button x:Name="CommDmgBtn3"
-                 Margin="10,5,10,0"
-                 Grid.Row="{Binding CommDmgBtnRow3}"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="4"
-                 CornerRadius="5"
-                 BackgroundColor="Gray"
-                 Text="{Binding CommDmg3}"
-                 TextTransform="None"
-                 FontAttributes="Bold"
-                 TextColor="White"
-                 FontSize="25"
-                 IsVisible="{Binding CmmDmg3Vis}"/>-->
         <Button x:Name="CommDmgBtn3MinusBtn"
                  Margin="10,5,-25,0"
                  Padding="25,5,45,5"
@@ -347,20 +302,6 @@
                  Clicked="CommDmgBtn3PlusBtn_Clicked"
                  IsVisible="{Binding CmmDmg3Vis}"/>
 
-        <!--<Button x:Name="CommDmgBtn4"
-                 Margin="10,5,10,0"
-                 Grid.Row="{Binding CommDmgBtnRow4}"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="4"
-                 CornerRadius="5"
-                 BackgroundColor="Gray"
-                 Text="{Binding CommDmg4}"
-                 TextTransform="None"
-                 FontAttributes="Bold"
-                 TextColor="White"
-                 FontSize="25"
-                 IsVisible="{Binding CmmDmg4Vis}"/>-->
-        
         <Button x:Name="CommDmgBtn4MinusBtn"
                  Margin="10,5,-25,0"
                  Padding="25,5,45,5"
@@ -399,6 +340,6 @@
                  ImageSource="PlusIcon.png"
                  Clicked="CommDmgBtn4PlusBtn_Clicked"
                  IsVisible="{Binding CmmDmg4Vis}"/>
-
+     
     </Grid>
 </ContentPage>

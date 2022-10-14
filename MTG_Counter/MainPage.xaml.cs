@@ -5,10 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using SQLite;
 
 namespace MTG_Counter
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
         Player player;
@@ -19,9 +21,7 @@ namespace MTG_Counter
             InitializeComponent();
             player = new Player();
             BindingContext = player;
-            //DeleteTable();//DELETE WHEN FINISHED WITH PROJECT
         }
-
 
         protected override void OnAppearing()
         {
@@ -31,7 +31,6 @@ namespace MTG_Counter
             {
                 if (conn.Table<Player>().Count() == 0)
                 {
-                    int count = conn.Table<Player>().Count();//DELETE 
                     conn.Insert(player);
                 }
                 playerList = conn.Table<Player>().ToList();
@@ -72,12 +71,11 @@ namespace MTG_Counter
                     player.CommDmgBtnRow4 = row.CommDmgBtnRow4;
                     player.CmmDmg4Vis = row.CmmDmg4Vis;
 
+                    player.CommDmgButtonCount = row.CommDmgButtonCount;
                     player.CreateCommDmgEnable = row.CreateCommDmgEnable;
                 }
-
             }
-
-        }
+        }//end OnAppearing
 
         protected override void OnDisappearing()
         {
@@ -85,11 +83,10 @@ namespace MTG_Counter
             {
                 if (conn.Table<Player>().Count() == 0)
                 {
-                    int count = conn.Table<Player>().Count();//DELETE 
                     conn.Insert(player);
                 }
 
-                foreach(Player row in playerList)
+                foreach (Player row in playerList)
                 {
                     row.Life = player.Life;
                     row.CommTax = player.CommTax;
@@ -103,15 +100,15 @@ namespace MTG_Counter
                     row.CommDmg4 = player.CommDmg4;
                     conn.Update(row);
                 }
-                
             }
-        }
+        }//end OnDisappearing
 
         private void SettingsBtn_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new SettingsPage(player, playerList));
-        }
+        }//end SettingsBtn_Clicked
 
+        #region Counters Clicked Events
         private void LifeMinusBtn_Clicked(object sender, EventArgs e)
         {
             player.Life -= 1;
@@ -125,7 +122,6 @@ namespace MTG_Counter
         private void CommTaxMinusBtn_Clicked(object sender, EventArgs e)
         {
             player.CommTax -= 2;
-
         }
 
         private void CommTaxPlusBtn_Clicked(object sender, EventArgs e)
@@ -189,6 +185,6 @@ namespace MTG_Counter
         {
             player.CommDmg4 += 1;
         }
-
+        #endregion
     }
 }

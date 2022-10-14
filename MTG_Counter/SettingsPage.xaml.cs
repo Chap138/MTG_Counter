@@ -15,7 +15,6 @@ namespace MTG_Counter
     {
         Player player;
         List<Player> playerList;
-        int rowCount = 0;
 
         public SettingsPage(Player player, List<Player> pList)
         {
@@ -38,26 +37,10 @@ namespace MTG_Counter
                     player.CommDmgButtonCount = row.CommDmgButtonCount;
                 }
             }
-        }
-        //protected override void OnDisappearing()
-        //{
-        //    using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
-        //    {
-        //        foreach (Player row in playerList)
-        //        {
-        //            row.CreateCommTaxEnabled = player.CreateCommTaxEnabled;
-        //            row.CreateExpCtrEnabled = player.CreateExpCtrEnabled;
-        //            row.CreatePoisonCtrEnabled = player.CreatePoisonCtrEnabled;
-        //            row.CreateCommDmgEnable = player.CreateCommDmgEnable;
-        //            row.CommDmgButtonCount = player.CommDmgButtonCount;
-        //        }
-        //    }
-        //}
+        }//end OnAppearing
 
         private void CreateCommTax_Clicked(object sender, EventArgs e)
         {
-            //player.CreateCommTaxEnabled = false;
-
             using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
                 foreach (Player row in playerList)
@@ -69,12 +52,10 @@ namespace MTG_Counter
                     break;
                 }
             }
-        }
+        }//end CreateCommTax_Clicked
 
         private void CreateExp_Clicked(object sender, EventArgs e)
         {
-            //CreateExp.IsEnabled = false;
-
             using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
                 foreach (Player row in playerList)
@@ -86,11 +67,10 @@ namespace MTG_Counter
                     break;
                 }
             }
-        }
+        }//end CreateExp_Clicked
 
         private void CreatePoison_Clicked(object sender, EventArgs e)
         {
-
             using (SQLiteConnection conn = new SQLiteConnection(App.FileName))
             {
                 foreach (Player row in playerList)
@@ -102,8 +82,7 @@ namespace MTG_Counter
                     break;
                 }
             }
-        }
-
+        }//end CreatePoison_Clicked
 
         private async void CreateCommDmg_Clicked(object sender, EventArgs e)
         {
@@ -111,10 +90,8 @@ namespace MTG_Counter
             {
                 foreach (Player row in playerList)
                 {
-
                     if (row.CommDmgButtonCount == 0)
                     {
-                        //string name = DisplayAlert("Commander name?", "Which commander do you need a counter for?", "Cancel");
                         string name = await DisplayPromptAsync("Commander Name", "Which commander do you need a counter for?", "Done", "Cancel");
                         if (name != null)
                         {
@@ -124,7 +101,6 @@ namespace MTG_Counter
                             row.CommDmgBtnRow1 = row.NewBtnRow += 1;
                             conn.Update(row);
                         }
-                        //break;
                     }
                     else if (row.CommDmgButtonCount == 1)
                     {
@@ -137,7 +113,6 @@ namespace MTG_Counter
                             row.CommDmgBtnRow2 = row.NewBtnRow += 1;
                             conn.Update(row);
                         }
-                        //break;
                     }
                     else if (row.CommDmgButtonCount == 2)
                     {
@@ -150,7 +125,6 @@ namespace MTG_Counter
                             row.CommDmgBtnRow3 = row.NewBtnRow += 1;
                             conn.Update(row);
                         }
-                        //break;
                     }
                     else if (row.CommDmgButtonCount == 3)
                     {
@@ -164,38 +138,10 @@ namespace MTG_Counter
                             row.CommDmgBtnRow4 = row.NewBtnRow += 1;
                             conn.Update(row);
                         }
-                       // break;
                     }
                 }
             }
-        }
-
-        //private void CreateCommDmg2_Clicked(object sender, EventArgs e)
-        //{
-        //    player.CmmDmg2Vis = true;
-        //    //CreateCommDmg2.IsEnabled = false;
-        //    rowCount += 1;
-        //    player.NewBtnRow = rowCount;
-        //}
-
-        //private void CreateCommDmg3_Clicked(object sender, EventArgs e)
-        //{
-        //    player.CmmDmg3Vis = true;
-        //    //CreateCommDmg3.IsEnabled = false;
-        //    rowCount += 1;
-        //    player.NewBtnRow = rowCount;
-        //}
-
-        //private void CreateCommDmg4_Clicked(object sender, EventArgs e)
-        //{
-        //    player.CmmDmg4Vis = true;
-        //    //CreateCommDmg4.IsEnabled = false;
-        //    rowCount += 1;
-        //    player.NewBtnRow = rowCount;
-        //    DisplayAlert("Row Count", Convert.ToString(player.NewBtnRow), "Cancel");
-        //}
-        //#endregion
-
+        }//end CreateCommDmg_Clicked
 
         private async void ResetBtn_Clicked(object sender, EventArgs e)
         {
@@ -207,14 +153,13 @@ namespace MTG_Counter
                 {
                     if (conn.Table<Player>().Count() == 0)
                     {
-                        int count = conn.Table<Player>().Count();//DELETE 
                         conn.Insert(player);
                     }
                     playerList = conn.Table<Player>().ToList();
                     foreach (Player row in playerList)
                     {
                         row.Life = 40;
-                        row.NewBtnRow = 0;//Need 
+                        row.NewBtnRow = 0;
 
                         row.CommTax = 0;
                         player.CreateCommTaxEnabled = row.CreateCommTaxEnabled = true;
