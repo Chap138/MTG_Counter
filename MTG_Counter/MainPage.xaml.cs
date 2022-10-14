@@ -103,10 +103,12 @@ namespace MTG_Counter
             }
         }//end OnDisappearing
 
+
         private void SettingsBtn_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new SettingsPage(player, playerList));
         }//end SettingsBtn_Clicked
+
 
         #region Counters Clicked Events
         private void LifeMinusBtn_Clicked(object sender, EventArgs e)
